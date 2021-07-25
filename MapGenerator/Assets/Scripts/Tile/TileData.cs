@@ -7,6 +7,9 @@ public class TileData
     private Vector2[] occupiedSpaces;
     private List<Vector2[]> rotatedOccupiedSpaces = new List<Vector2[]>();
 
+    private TileMapData correspondingTileMap;
+    private List<TileMapCell> correspondingTileMapCells;
+
     public Vector2[] GetOccupiedSpaces(TileRotation rotation)
     {
         switch (rotation)
@@ -44,5 +47,15 @@ public class TileData
                 spaces[j] = new Vector2(spaces[j].y, -spaces[j].x);
             }
         }
+    }
+
+    private void SetTileMap(TileMapData tileMap)
+    {
+        correspondingTileMap = tileMap;
+    }
+
+    private void SetTileMapCells(List<TileMapCell> tileMapCells)
+    {
+        correspondingTileMapCells = tileMapCells;
     }
 }

@@ -11,9 +11,20 @@ public class TileMap : ScriptableObject
     public int MapSize = 8;
     public bool[] Tiles = new bool[64];
 
+    [SerializeField]
+    public TileMapData tileMapData = new TileMapData(8);
+
     private void OnValidate()
     {
         AdjustMapSize();
+        RecalculateMapData();
+    }
+
+    private void RecalculateMapData()
+    {
+        Debug.Log(MapSize);
+        tileMapData = new TileMapData(MapSize, Tiles);
+        Debug.Log("Recalculated Map Data.");
     }
 
     private void AdjustMapSize()

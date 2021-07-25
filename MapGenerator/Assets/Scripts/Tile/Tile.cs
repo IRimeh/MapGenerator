@@ -21,11 +21,8 @@ public class Tile : MonoBehaviour
 
     private void OnValidate()
     {
-        if (data != null)
-        {
-            AdjustTileSize();
-            RecalculateTileData();
-        }
+        AdjustTileSize();
+        RecalculateTileData();
     }
 
     private void AdjustTileSize()
