@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "TileMap", menuName = "ScriptableObjects/Create TileMap", order = 1)]
 public class TileMap : ScriptableObject
 {
+    [SerializeField][HideInInspector]
     private int oldMapSize = 3;
     [Min(1)]
     public int MapSize = 8;

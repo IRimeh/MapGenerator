@@ -104,13 +104,13 @@ public class MapGenerator : MonoBehaviour
             }
         }
 
-        foreach (int index in cellIndicesNowOccupied)
-        {
-            if (mapData.availableCells.Contains(mapData.cells[index]))
-            {
-                mapData.availableCells.Remove(mapData.cells[index]);
-            }
-        }
+        //foreach (int index in cellIndicesNowOccupied)
+        //{
+        //    if (mapData.availableCells.Contains(mapData.cells[index]))
+        //    {
+        //        mapData.availableCells.Remove(mapData.cells[index]);
+        //    }
+        //}
     }
 
     private void GetPlaceableTile(TileMapData mapData, Vector2 position, out List<int> cellIndices, out TileRotation tileRotation, out int tileIndex)
@@ -124,7 +124,7 @@ public class MapGenerator : MonoBehaviour
             //Test all rotations for tile prefab
             for (int i = 0; i < 4; i++)
             {
-                tileRotation = (TileRotation)(i + randomStartRot % 3);
+                tileRotation = (TileRotation)(i);
                 if(CanTileBePlaced(mapData, position, Tiles[tilePrefabIndex].GetOccupiedSpaces(tileRotation), out cellIndices))
                 {
                     tileIndex = tilePrefabIndex;

@@ -16,7 +16,10 @@ public class Tile : MonoBehaviour
 
     private void OnEnable()
     {
-        RecalculateTileData();
+        if (!Application.isPlaying)
+        {
+            RecalculateTileData();
+        }
     }
 
     private void OnValidate()

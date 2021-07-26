@@ -51,8 +51,11 @@ public class TileMapData
     public bool TryPositionToIndex(Vector2 position, out int index)
     {
         index = (int)(position.y * tileMapSize + position.x);
-        if (index < 0 || index >= cells.Length)
+
+        if (position.x < 0 || position.x >= tileMapSize ||
+            position.y < 0 || position.y >= tileMapSize)
             return false;
+
         return true;
     }
 
@@ -68,8 +71,7 @@ public class TileMapData
         int y = Mathf.FloorToInt(index / tileMapSize);
         position = new Vector2(x, y);
 
-        if (position.x < 0 || position.x >= tileMapSize ||
-            position.y < 0 || position.y >= tileMapSize)
+        if (index < 0 || index >= cells.Length)
             return false;
 
         return true;
