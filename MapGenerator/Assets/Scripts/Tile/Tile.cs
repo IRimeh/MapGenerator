@@ -21,8 +21,11 @@ public class Tile : MonoBehaviour
 
     private void OnValidate()
     {
-        AdjustTileSize();
-        RecalculateTileData();
+        if (!Application.isPlaying)
+        {
+            AdjustTileSize();
+            RecalculateTileData();
+        }
     }
 
     private void AdjustTileSize()
@@ -73,7 +76,7 @@ public class Tile : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.blue;
+        Gizmos.color = new Color(0.5f, 0.5f, 1.0f, 0.5f);
         Vector2[] occupiedTiles = data.GetOccupiedSpaces(TileRotation._0);
         for (int i = 0; i < occupiedTiles.Length; i++)
         {

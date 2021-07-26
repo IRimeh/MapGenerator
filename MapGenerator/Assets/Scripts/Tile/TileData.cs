@@ -4,10 +4,14 @@ using UnityEngine;
 [System.Serializable]
 public class TileData
 {
+    [SerializeField]
     private Vector2[] occupiedSpaces;
+    [SerializeField]
     private List<Vector2[]> rotatedOccupiedSpaces = new List<Vector2[]>();
 
+    [SerializeField]
     private TileMapData correspondingTileMap;
+    [SerializeField]
     private List<TileMapCell> correspondingTileMapCells;
 
     public Vector2[] GetOccupiedSpaces(TileRotation rotation)

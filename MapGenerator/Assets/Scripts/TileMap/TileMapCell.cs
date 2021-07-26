@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[System.Serializable]
 public class TileMapCell
 {
     public Vector2 position;

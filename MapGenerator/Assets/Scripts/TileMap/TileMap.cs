@@ -22,7 +22,6 @@ public class TileMap : ScriptableObject
 
     private void RecalculateMapData()
     {
-        Debug.Log(MapSize);
         tileMapData = new TileMapData(MapSize, Tiles);
         Debug.Log("Recalculated Map Data.");
     }

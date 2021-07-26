@@ -21,8 +21,16 @@ public class TileMapData
         SetInitialTileMapState(_tiles);
     }
 
+    public TileMapData(TileMapData dataToCopy)
+    {
+        tileMapSize = dataToCopy.tileMapSize;
+        cells = dataToCopy.cells;
+        availableCells = dataToCopy.availableCells;
+    }
+
     public void SetInitialTileMapState(bool[] tiles)
     {
+        availableCells.Clear();
         if(tiles.Length != cells.Length)
         {
             Debug.LogError("Length of input array does not equal the tilemaps size.");
@@ -31,24 +39,39 @@ public class TileMapData
 
         for (int i = 0; i < tiles.Length; i++)
         {
-            Vector2 position = IndexToPosition(i);
+            Vector2 position;
+            TryIndexToPosition(i, out position);
             CellState cellState = tiles[i] ? CellState.Available : CellState.Unavailable;
             cells[i] = new TileMapCell(this, position, cellState);
+            if (tiles[i])
+                availableCells.Add(cells[i]);
         }
     }
 
-    private int PositionToIndex(Vector2 position)
+    public bool TryPositionToIndex(Vector2 position, out int index)
     {
-        return (int)(position.y * tileMapSize + position.x);
+        index = (int)(position.y * tileMapSize + position.x);
+        if (index < 0 || index >= cells.Length)
+            return false;
+        return true;
     }
 
-    private Vector2 IndexToPosition(int index)
+    public bool TryIndexToPosition(int index, out Vector2 position)
     {
         if (index == 0)
-            return new Vector2(0, 0);
+        {
+            position = new Vector2(0, 0);
+            return true;
+        }
 
         int x = index % tileMapSize;
         int y = Mathf.FloorToInt(index / tileMapSize);
-        return new Vector2(x, y);
+        position = new Vector2(x, y);
+
+        if (position.x < 0 || position.x >= tileMapSize ||
+            position.y < 0 || position.y >= tileMapSize)
+            return false;
+
+        return true;
     }
 }
