@@ -1,13 +1,14 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
+[Serializable]
 public class TileData
 {
     [SerializeField]
     private Vector2[] occupiedSpaces;
     [SerializeField]
-    private List<Vector2[]> rotatedOccupiedSpaces = new List<Vector2[]>();
+    private List<RotatedSpacesWrapper> rotatedOccupiedSpaces = new List<RotatedSpacesWrapper>();
 
     [SerializeField]
     private TileMapData correspondingTileMap;
@@ -19,13 +20,13 @@ public class TileData
         switch (rotation)
         {
             case TileRotation._0:
-                return rotatedOccupiedSpaces[0];
+                return rotatedOccupiedSpaces[0].RotatedSpaces;
             case TileRotation._90:
-                return rotatedOccupiedSpaces[1];
+                return rotatedOccupiedSpaces[1].RotatedSpaces;
             case TileRotation._180:
-                return rotatedOccupiedSpaces[2];
+                return rotatedOccupiedSpaces[2].RotatedSpaces;
             case TileRotation._270:
-                return rotatedOccupiedSpaces[3];
+                return rotatedOccupiedSpaces[3].RotatedSpaces;
             default:
                 return occupiedSpaces;
         }
@@ -44,7 +45,8 @@ public class TileData
 
         for (int i = 0; i < 4; i++)
         {
-            rotatedOccupiedSpaces.Add((Vector2[])spaces.Clone());
+            RotatedSpacesWrapper rotatedSpaces = new RotatedSpacesWrapper { RotatedSpaces = (Vector2[])spaces.Clone() };
+            rotatedOccupiedSpaces.Add(rotatedSpaces);
 
             for (int j = 0; j < spaces.Length; j++)
             {
@@ -62,4 +64,10 @@ public class TileData
     {
         correspondingTileMapCells = tileMapCells;
     }
+}
+
+[Serializable]
+public struct RotatedSpacesWrapper
+{
+    public Vector2[] RotatedSpaces;
 }

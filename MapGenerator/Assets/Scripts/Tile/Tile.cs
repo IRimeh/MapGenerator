@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[ExecuteAlways]
 public class Tile : MonoBehaviour
 {
     private int oldTileSize = 3;
@@ -16,7 +15,7 @@ public class Tile : MonoBehaviour
 
     private void OnEnable()
     {
-        if (!Application.isPlaying)
+        if (!EditorApplication.isPlayingOrWillChangePlaymode)
         {
             RecalculateTileData();
         }
@@ -24,7 +23,7 @@ public class Tile : MonoBehaviour
 
     private void OnValidate()
     {
-        if (!Application.isPlaying)
+        if (!EditorApplication.isPlayingOrWillChangePlaymode)
         {
             AdjustTileSize();
             RecalculateTileData();

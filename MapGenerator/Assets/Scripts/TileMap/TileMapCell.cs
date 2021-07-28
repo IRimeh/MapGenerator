@@ -1,10 +1,13 @@
 using UnityEngine;
 
+[System.Serializable]
 public class TileMapCell
 {
     public Vector2 position;
     public CellState state = CellState.Unavailable;
     private Tile correspondingTile;
+
+    [System.NonSerialized]
     private TileMapData tileMap;
 
     public TileMapCell(TileMapData _tileMap, Vector2 _position, CellState _state = CellState.Unavailable)

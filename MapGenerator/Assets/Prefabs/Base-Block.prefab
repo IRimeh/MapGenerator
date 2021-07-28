@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6959175445252104167}
   - component: {fileID: 1410880075937172734}
   m_Layer: 0
-  m_Name: Base
+  m_Name: Base-Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,3 +96,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TileSize: 3
   Tiles: 000000000100000000
+  data:
+    occupiedSpaces:
+    - {x: 0, y: 0}
+    rotatedOccupiedSpaces:
+    - RotatedSpaces:
+      - {x: 0, y: 0}
+    - RotatedSpaces:
+      - {x: 0, y: -0}
+    - RotatedSpaces:
+      - {x: -0, y: -0}
+    - RotatedSpaces:
+      - {x: -0, y: 0}

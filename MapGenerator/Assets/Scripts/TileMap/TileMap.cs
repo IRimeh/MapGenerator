@@ -17,8 +17,11 @@ public class TileMap : ScriptableObject
 
     private void OnValidate()
     {
-        AdjustMapSize();
-        RecalculateMapData();
+        if (!EditorApplication.isPlayingOrWillChangePlaymode)
+        {
+            AdjustMapSize();
+            RecalculateMapData();
+        }
     }
 
     private void RecalculateMapData()

@@ -259,37 +259,212 @@ MonoBehaviour:
     - {x: -1, y: 1}
     - {x: -1, y: 0}
     - {x: 0, y: 0}
+    rotatedOccupiedSpaces:
+    - RotatedSpaces:
+      - {x: -1, y: 1}
+      - {x: -1, y: 0}
+      - {x: 0, y: 0}
+    - RotatedSpaces:
+      - {x: 1, y: 1}
+      - {x: 0, y: 1}
+      - {x: 0, y: -0}
+    - RotatedSpaces:
+      - {x: 1, y: -1}
+      - {x: 1, y: -0}
+      - {x: -0, y: -0}
+    - RotatedSpaces:
+      - {x: -1, y: -1}
+      - {x: -0, y: -1}
+      - {x: -0, y: 0}
+    correspondingTileMap:
+      cells: []
+      availableCells: []
+    correspondingTileMapCells: []
   - occupiedSpaces:
     - {x: -1, y: 0}
     - {x: 0, y: 0}
     - {x: 1, y: 0}
+    rotatedOccupiedSpaces:
+    - RotatedSpaces:
+      - {x: -1, y: 0}
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+    - RotatedSpaces:
+      - {x: 0, y: 1}
+      - {x: 0, y: -0}
+      - {x: 0, y: -1}
+    - RotatedSpaces:
+      - {x: 1, y: -0}
+      - {x: -0, y: -0}
+      - {x: -1, y: -0}
+    - RotatedSpaces:
+      - {x: -0, y: -1}
+      - {x: -0, y: 0}
+      - {x: -0, y: 1}
+    correspondingTileMap:
+      cells: []
+      availableCells: []
+    correspondingTileMapCells: []
   - occupiedSpaces:
     - {x: -1, y: 0}
     - {x: 0, y: 0}
     - {x: 1, y: 0}
     - {x: -1, y: -1}
+    rotatedOccupiedSpaces:
+    - RotatedSpaces:
+      - {x: -1, y: 0}
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: -1, y: -1}
+    - RotatedSpaces:
+      - {x: 0, y: 1}
+      - {x: 0, y: -0}
+      - {x: 0, y: -1}
+      - {x: -1, y: 1}
+    - RotatedSpaces:
+      - {x: 1, y: -0}
+      - {x: -0, y: -0}
+      - {x: -1, y: -0}
+      - {x: 1, y: 1}
+    - RotatedSpaces:
+      - {x: -0, y: -1}
+      - {x: -0, y: 0}
+      - {x: -0, y: 1}
+      - {x: 1, y: -1}
+    correspondingTileMap:
+      cells: []
+      availableCells: []
+    correspondingTileMapCells: []
   - occupiedSpaces:
     - {x: -1, y: 1}
     - {x: 0, y: 1}
     - {x: 0, y: 0}
     - {x: 0, y: -1}
     - {x: 1, y: -1}
+    rotatedOccupiedSpaces:
+    - RotatedSpaces:
+      - {x: -1, y: 1}
+      - {x: 0, y: 1}
+      - {x: 0, y: 0}
+      - {x: 0, y: -1}
+      - {x: 1, y: -1}
+    - RotatedSpaces:
+      - {x: 1, y: 1}
+      - {x: 1, y: -0}
+      - {x: 0, y: -0}
+      - {x: -1, y: -0}
+      - {x: -1, y: -1}
+    - RotatedSpaces:
+      - {x: 1, y: -1}
+      - {x: -0, y: -1}
+      - {x: -0, y: -0}
+      - {x: -0, y: 1}
+      - {x: -1, y: 1}
+    - RotatedSpaces:
+      - {x: -1, y: -1}
+      - {x: -1, y: 0}
+      - {x: -0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 1, y: 1}
+    correspondingTileMap:
+      cells: []
+      availableCells: []
+    correspondingTileMapCells: []
   - occupiedSpaces:
     - {x: -1, y: 1}
     - {x: 0, y: 1}
     - {x: 0, y: 0}
     - {x: 1, y: 0}
+    rotatedOccupiedSpaces:
+    - RotatedSpaces:
+      - {x: -1, y: 1}
+      - {x: 0, y: 1}
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+    - RotatedSpaces:
+      - {x: 1, y: 1}
+      - {x: 1, y: -0}
+      - {x: 0, y: -0}
+      - {x: 0, y: -1}
+    - RotatedSpaces:
+      - {x: 1, y: -1}
+      - {x: -0, y: -1}
+      - {x: -0, y: -0}
+      - {x: -1, y: -0}
+    - RotatedSpaces:
+      - {x: -1, y: -1}
+      - {x: -1, y: 0}
+      - {x: -0, y: 0}
+      - {x: -0, y: 1}
+    correspondingTileMap:
+      cells: []
+      availableCells: []
+    correspondingTileMapCells: []
   - occupiedSpaces:
     - {x: 0, y: 1}
     - {x: -1, y: 0}
     - {x: 0, y: 0}
     - {x: 1, y: 0}
+    rotatedOccupiedSpaces:
+    - RotatedSpaces:
+      - {x: 0, y: 1}
+      - {x: -1, y: 0}
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+    - RotatedSpaces:
+      - {x: 1, y: -0}
+      - {x: 0, y: 1}
+      - {x: 0, y: -0}
+      - {x: 0, y: -1}
+    - RotatedSpaces:
+      - {x: -0, y: -1}
+      - {x: 1, y: -0}
+      - {x: -0, y: -0}
+      - {x: -1, y: -0}
+    - RotatedSpaces:
+      - {x: -1, y: 0}
+      - {x: -0, y: -1}
+      - {x: -0, y: 0}
+      - {x: -0, y: 1}
+    correspondingTileMap:
+      cells: []
+      availableCells: []
+    correspondingTileMapCells: []
   - occupiedSpaces:
     - {x: 1, y: 1}
     - {x: 0, y: 0}
     - {x: 1, y: 0}
     - {x: -1, y: -1}
     - {x: 0, y: -1}
+    rotatedOccupiedSpaces:
+    - RotatedSpaces:
+      - {x: 1, y: 1}
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: -1, y: -1}
+      - {x: 0, y: -1}
+    - RotatedSpaces:
+      - {x: 1, y: -1}
+      - {x: 0, y: -0}
+      - {x: 0, y: -1}
+      - {x: -1, y: 1}
+      - {x: -1, y: -0}
+    - RotatedSpaces:
+      - {x: -1, y: -1}
+      - {x: -0, y: -0}
+      - {x: -1, y: -0}
+      - {x: 1, y: 1}
+      - {x: -0, y: 1}
+    - RotatedSpaces:
+      - {x: -1, y: 1}
+      - {x: -0, y: 0}
+      - {x: -0, y: 1}
+      - {x: 1, y: -1}
+      - {x: 1, y: 0}
+    correspondingTileMap:
+      cells: []
+      availableCells: []
+    correspondingTileMapCells: []
   TilePrefabIndices: 00000000010000000200000003000000040000000500000006000000
   tileMap: {fileID: 11400000, guid: c5dda06c23dd4ca4d8ef80339c587433, type: 2}
 --- !u!4 &673367497
