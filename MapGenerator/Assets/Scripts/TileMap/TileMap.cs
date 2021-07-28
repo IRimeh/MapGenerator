@@ -17,17 +17,13 @@ public class TileMap : ScriptableObject
 
     private void OnValidate()
     {
-        if (!EditorApplication.isPlayingOrWillChangePlaymode)
-        {
-            AdjustMapSize();
-            RecalculateMapData();
-        }
+        AdjustMapSize();
+        RecalculateMapData();
     }
 
     private void RecalculateMapData()
     {
         tileMapData = new TileMapData(MapSize, Tiles);
-        Debug.Log("Recalculated Map Data.");
     }
 
     private void AdjustMapSize()

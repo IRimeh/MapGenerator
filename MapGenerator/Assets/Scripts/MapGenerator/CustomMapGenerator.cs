@@ -18,7 +18,7 @@ public class CustomMapGenerator : MapGenerator
 
         if (tileMap != null)
         {
-            Generate(tileMap.tileMapData, transform.position);
+            Generate(tileMap.tileMapData, transform.position, gameObject);
             Debug.Log("Generated.");
         }
     }

@@ -277,6 +277,7 @@ MonoBehaviour:
       - {x: -0, y: -1}
       - {x: -0, y: 0}
     correspondingTileMap:
+      tileMapSize: 0
       cells: []
       availableCells: []
     correspondingTileMapCells: []
@@ -302,6 +303,7 @@ MonoBehaviour:
       - {x: -0, y: 0}
       - {x: -0, y: 1}
     correspondingTileMap:
+      tileMapSize: 0
       cells: []
       availableCells: []
     correspondingTileMapCells: []
@@ -332,6 +334,7 @@ MonoBehaviour:
       - {x: -0, y: 1}
       - {x: 1, y: -1}
     correspondingTileMap:
+      tileMapSize: 0
       cells: []
       availableCells: []
     correspondingTileMapCells: []
@@ -367,6 +370,7 @@ MonoBehaviour:
       - {x: 1, y: 0}
       - {x: 1, y: 1}
     correspondingTileMap:
+      tileMapSize: 0
       cells: []
       availableCells: []
     correspondingTileMapCells: []
@@ -397,6 +401,7 @@ MonoBehaviour:
       - {x: -0, y: 0}
       - {x: -0, y: 1}
     correspondingTileMap:
+      tileMapSize: 0
       cells: []
       availableCells: []
     correspondingTileMapCells: []
@@ -427,6 +432,7 @@ MonoBehaviour:
       - {x: -0, y: 0}
       - {x: -0, y: 1}
     correspondingTileMap:
+      tileMapSize: 0
       cells: []
       availableCells: []
     correspondingTileMapCells: []
@@ -462,6 +468,7 @@ MonoBehaviour:
       - {x: 1, y: -1}
       - {x: 1, y: 0}
     correspondingTileMap:
+      tileMapSize: 0
       cells: []
       availableCells: []
     correspondingTileMapCells: []

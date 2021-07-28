@@ -15,3 +15,295 @@ MonoBehaviour:
   oldMapSize: 12
   MapSize: 12
   Tiles: 000000000001010101010101010100000001010101010101010101000000010101010000010101010000000000000000000101010100000000000000000101010100000000000000000001010101010000000000000001010101010101010000000101010101010101010100000101010101010101010101010101000000000101010101010100000000000000000101
+  tileMapData:
+    tileMapSize: 12
+    cells:
+    - position: {x: 0, y: 0}
+      state: 0
+    - position: {x: 1, y: 0}
+      state: 0
+    - position: {x: 2, y: 0}
+      state: 0
+    - position: {x: 3, y: 0}
+      state: 0
+    - position: {x: 4, y: 0}
+      state: 0
+    - position: {x: 5, y: 0}
+      state: 2
+    - position: {x: 6, y: 0}
+      state: 2
+    - position: {x: 7, y: 0}
+      state: 2
+    - position: {x: 8, y: 0}
+      state: 2
+    - position: {x: 9, y: 0}
+      state: 2
+    - position: {x: 10, y: 0}
+      state: 2
+    - position: {x: 11, y: 0}
+      state: 2
+    - position: {x: 0, y: 1}
+      state: 2
+    - position: {x: 1, y: 1}
+      state: 2
+    - position: {x: 2, y: 1}
+      state: 0
+    - position: {x: 3, y: 1}
+      state: 0
+    - position: {x: 4, y: 1}
+      state: 0
+    - position: {x: 5, y: 1}
+      state: 2
+    - position: {x: 6, y: 1}
+      state: 2
+    - position: {x: 7, y: 1}
+      state: 2
+    - position: {x: 8, y: 1}
+      state: 2
+    - position: {x: 9, y: 1}
+      state: 2
+    - position: {x: 10, y: 1}
+      state: 2
+    - position: {x: 11, y: 1}
+      state: 2
+    - position: {x: 0, y: 2}
+      state: 2
+    - position: {x: 1, y: 2}
+      state: 2
+    - position: {x: 2, y: 2}
+      state: 2
+    - position: {x: 3, y: 2}
+      state: 0
+    - position: {x: 4, y: 2}
+      state: 0
+    - position: {x: 5, y: 2}
+      state: 0
+    - position: {x: 6, y: 2}
+      state: 2
+    - position: {x: 7, y: 2}
+      state: 2
+    - position: {x: 8, y: 2}
+      state: 2
+    - position: {x: 9, y: 2}
+      state: 2
+    - position: {x: 10, y: 2}
+      state: 0
+    - position: {x: 11, y: 2}
+      state: 0
+    - position: {x: 0, y: 3}
+      state: 2
+    - position: {x: 1, y: 3}
+      state: 2
+    - position: {x: 2, y: 3}
+      state: 2
+    - position: {x: 3, y: 3}
+      state: 2
+    - position: {x: 4, y: 3}
+      state: 0
+    - position: {x: 5, y: 3}
+      state: 0
+    - position: {x: 6, y: 3}
+      state: 0
+    - position: {x: 7, y: 3}
+      state: 0
+    - position: {x: 8, y: 3}
+      state: 0
+    - position: {x: 9, y: 3}
+      state: 0
+    - position: {x: 10, y: 3}
+      state: 0
+    - position: {x: 11, y: 3}
+      state: 0
+    - position: {x: 0, y: 4}
+      state: 0
+    - position: {x: 1, y: 4}
+      state: 2
+    - position: {x: 2, y: 4}
+      state: 2
+    - position: {x: 3, y: 4}
+      state: 2
+    - position: {x: 4, y: 4}
+      state: 2
+    - position: {x: 5, y: 4}
+      state: 0
+    - position: {x: 6, y: 4}
+      state: 0
+    - position: {x: 7, y: 4}
+      state: 0
+    - position: {x: 8, y: 4}
+      state: 0
+    - position: {x: 9, y: 4}
+      state: 0
+    - position: {x: 10, y: 4}
+      state: 0
+    - position: {x: 11, y: 4}
+      state: 0
+    - position: {x: 0, y: 5}
+      state: 0
+    - position: {x: 1, y: 5}
+      state: 2
+    - position: {x: 2, y: 5}
+      state: 2
+    - position: {x: 3, y: 5}
+      state: 2
+    - position: {x: 4, y: 5}
+      state: 2
+    - position: {x: 5, y: 5}
+      state: 0
+    - position: {x: 6, y: 5}
+      state: 0
+    - position: {x: 7, y: 5}
+      state: 0
+    - position: {x: 8, y: 5}
+      state: 0
+    - position: {x: 9, y: 5}
+      state: 0
+    - position: {x: 10, y: 5}
+      state: 0
+    - position: {x: 11, y: 5}
+      state: 0
+    - position: {x: 0, y: 6}
+      state: 0
+    - position: {x: 1, y: 6}
+      state: 0
+    - position: {x: 2, y: 6}
+      state: 2
+    - position: {x: 3, y: 6}
+      state: 2
+    - position: {x: 4, y: 6}
+      state: 2
+    - position: {x: 5, y: 6}
+      state: 2
+    - position: {x: 6, y: 6}
+      state: 2
+    - position: {x: 7, y: 6}
+      state: 0
+    - position: {x: 8, y: 6}
+      state: 0
+    - position: {x: 9, y: 6}
+      state: 0
+    - position: {x: 10, y: 6}
+      state: 0
+    - position: {x: 11, y: 6}
+      state: 0
+    - position: {x: 0, y: 7}
+      state: 0
+    - position: {x: 1, y: 7}
+      state: 0
+    - position: {x: 2, y: 7}
+      state: 2
+    - position: {x: 3, y: 7}
+      state: 2
+    - position: {x: 4, y: 7}
+      state: 2
+    - position: {x: 5, y: 7}
+      state: 2
+    - position: {x: 6, y: 7}
+      state: 2
+    - position: {x: 7, y: 7}
+      state: 2
+    - position: {x: 8, y: 7}
+      state: 2
+    - position: {x: 9, y: 7}
+      state: 2
+    - position: {x: 10, y: 7}
+      state: 0
+    - position: {x: 11, y: 7}
+      state: 0
+    - position: {x: 0, y: 8}
+      state: 0
+    - position: {x: 1, y: 8}
+      state: 2
+    - position: {x: 2, y: 8}
+      state: 2
+    - position: {x: 3, y: 8}
+      state: 2
+    - position: {x: 4, y: 8}
+      state: 2
+    - position: {x: 5, y: 8}
+      state: 2
+    - position: {x: 6, y: 8}
+      state: 2
+    - position: {x: 7, y: 8}
+      state: 2
+    - position: {x: 8, y: 8}
+      state: 2
+    - position: {x: 9, y: 8}
+      state: 2
+    - position: {x: 10, y: 8}
+      state: 2
+    - position: {x: 11, y: 8}
+      state: 0
+    - position: {x: 0, y: 9}
+      state: 0
+    - position: {x: 1, y: 9}
+      state: 2
+    - position: {x: 2, y: 9}
+      state: 2
+    - position: {x: 3, y: 9}
+      state: 2
+    - position: {x: 4, y: 9}
+      state: 2
+    - position: {x: 5, y: 9}
+      state: 2
+    - position: {x: 6, y: 9}
+      state: 2
+    - position: {x: 7, y: 9}
+      state: 2
+    - position: {x: 8, y: 9}
+      state: 2
+    - position: {x: 9, y: 9}
+      state: 2
+    - position: {x: 10, y: 9}
+      state: 2
+    - position: {x: 11, y: 9}
+      state: 2
+    - position: {x: 0, y: 10}
+      state: 2
+    - position: {x: 1, y: 10}
+      state: 2
+    - position: {x: 2, y: 10}
+      state: 2
+    - position: {x: 3, y: 10}
+      state: 0
+    - position: {x: 4, y: 10}
+      state: 0
+    - position: {x: 5, y: 10}
+      state: 0
+    - position: {x: 6, y: 10}
+      state: 0
+    - position: {x: 7, y: 10}
+      state: 2
+    - position: {x: 8, y: 10}
+      state: 2
+    - position: {x: 9, y: 10}
+      state: 2
+    - position: {x: 10, y: 10}
+      state: 2
+    - position: {x: 11, y: 10}
+      state: 2
+    - position: {x: 0, y: 11}
+      state: 2
+    - position: {x: 1, y: 11}
+      state: 2
+    - position: {x: 2, y: 11}
+      state: 0
+    - position: {x: 3, y: 11}
+      state: 0
+    - position: {x: 4, y: 11}
+      state: 0
+    - position: {x: 5, y: 11}
+      state: 0
+    - position: {x: 6, y: 11}
+      state: 0
+    - position: {x: 7, y: 11}
+      state: 0
+    - position: {x: 8, y: 11}
+      state: 0
+    - position: {x: 9, y: 11}
+      state: 0
+    - position: {x: 10, y: 11}
+      state: 2
+    - position: {x: 11, y: 11}
+      state: 2
+    availableCells: []

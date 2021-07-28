@@ -29,14 +29,14 @@ public class MapGenerator : MonoBehaviour
         Debug.Log("Loaded " + Tiles.Count + " Tiles.");
     }
 
-    protected void Generate(TileMapData mapData, Vector3 middlePos)
+    protected void Generate(TileMapData mapData, Vector3 middlePos, GameObject parent = null)
     {
         TileMapData data = new TileMapData(mapData);
-        GenerateInitialTiles(data, middlePos);
-        GenerateRestOfTiles(data, middlePos);
+        GenerateInitialTiles(data, middlePos, parent);
+        GenerateRestOfTiles(data, middlePos, parent);
     }
 
-    private void GenerateInitialTiles(TileMapData mapData, Vector3 middlePos)
+    private void GenerateInitialTiles(TileMapData mapData, Vector3 middlePos, GameObject parent = null)
     {
         List<int> indices = GetRandomIndicesFromAvailableCells(mapData, mapData.availableCells.Count / 20);
         List<int> cellIndicesNowOccupied = new List<int>();
@@ -51,9 +51,7 @@ public class MapGenerator : MonoBehaviour
             int tileIndex = 0;
 
             GetPlaceableTile(mapData, mapData.availableCells[index].position, out cellIndices, out tileRotation, out tileIndex);
-
-            Vector3 position = middlePos + new Vector3(mapData.availableCells[index].position.x * TileSettings.TileWidth, 0, mapData.availableCells[index].position.y * TileSettings.TileWidth);
-            PlaceTile(tileIndex, position, tileRotation);
+            PlaceTile(tileIndex, mapData, middlePos, mapData.availableCells[index].position, tileRotation, parent);
 
             foreach (int cellIndex in cellIndices)
             {
@@ -72,7 +70,7 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
-    private void GenerateRestOfTiles(TileMapData mapData, Vector3 middlePos)
+    private void GenerateRestOfTiles(TileMapData mapData, Vector3 middlePos, GameObject parent = null)
     {
         List<int> randomIndexOrder = new List<int>();
         for (int i = 0; i < mapData.availableCells.Count; i++)
@@ -92,9 +90,7 @@ public class MapGenerator : MonoBehaviour
             int tileIndex = 0;
 
             GetPlaceableTile(mapData, mapData.availableCells[randomIndexOrder[i]].position, out cellIndices, out tileRotation, out tileIndex);
-
-            Vector3 position = middlePos + new Vector3(mapData.availableCells[randomIndexOrder[i]].position.x * TileSettings.TileWidth, 0, mapData.availableCells[randomIndexOrder[i]].position.y * TileSettings.TileWidth);
-            PlaceTile(tileIndex, position, tileRotation);
+            PlaceTile(tileIndex, mapData, middlePos, mapData.availableCells[randomIndexOrder[i]].position, tileRotation, parent);
 
             foreach (int cellIndex in cellIndices)
             {
@@ -104,13 +100,13 @@ public class MapGenerator : MonoBehaviour
             }
         }
 
-        //foreach (int index in cellIndicesNowOccupied)
-        //{
-        //    if (mapData.availableCells.Contains(mapData.cells[index]))
-        //    {
-        //        mapData.availableCells.Remove(mapData.cells[index]);
-        //    }
-        //}
+        foreach (int index in cellIndicesNowOccupied)
+        {
+            if (mapData.availableCells.Contains(mapData.cells[index]))
+            {
+                mapData.availableCells.Remove(mapData.cells[index]);
+            }
+        }
     }
 
     private void GetPlaceableTile(TileMapData mapData, Vector2 position, out List<int> cellIndices, out TileRotation tileRotation, out int tileIndex)
@@ -142,15 +138,18 @@ public class MapGenerator : MonoBehaviour
         tileRotation = (TileRotation)((int)Random.Range(0, 3));
     }
 
-    private void PlaceTile(int tileIndex, Vector3 position, TileRotation rotation)
+    private void PlaceTile(int tileIndex, TileMapData mapData, Vector3 middlePos, Vector3 position, TileRotation rotation, GameObject parent = null)
     {
-        if(tileIndex < 0)
+        float centeringValue = mapData.GetSize() / 2.0f - 0.5f;
+        Vector3 pos = middlePos + new Vector3(position.x - centeringValue, 0, position.y - centeringValue) * TileSettings.TileWidth;
+
+        if (tileIndex < 0)
         {
-            Instantiate(BackupTilePrefab, position, Quaternion.Euler(0, TileRotationToDegrees(rotation), 0));
+            Instantiate(BackupTilePrefab, pos, Quaternion.Euler(0, TileRotationToDegrees(rotation), 0), parent.transform);
             return;
         }
 
-        Instantiate(TilePrefabs[tileIndex], position, Quaternion.Euler(0, TileRotationToDegrees(rotation), 0));
+        Instantiate(TilePrefabs[tileIndex], pos, Quaternion.Euler(0, TileRotationToDegrees(rotation), 0), parent.transform);
     }
 
     private List<int> GetRandomIndicesFromAvailableCells(TileMapData mapData, int indicesCount)

@@ -78,12 +78,15 @@ public class Tile : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = new Color(0.5f, 0.5f, 1.0f, 0.5f);
-        Vector2[] occupiedTiles = data.GetOccupiedSpaces(TileRotation._0);
-        for (int i = 0; i < occupiedTiles.Length; i++)
+        if (!Application.isPlaying)
         {
-            Vector3 offset = new Vector3(occupiedTiles[i].x * TileSettings.TileWidth, 0, occupiedTiles[i].y * TileSettings.TileWidth);
-            Gizmos.DrawCube(transform.position + offset, Vector3.one * TileSettings.TileWidth);
+            Gizmos.color = new Color(0.5f, 0.5f, 1.0f, 0.5f);
+            Vector2[] occupiedTiles = data.GetOccupiedSpaces(TileRotation._0);
+            for (int i = 0; i < occupiedTiles.Length; i++)
+            {
+                Vector3 offset = new Vector3(occupiedTiles[i].x * TileSettings.TileWidth, 0, occupiedTiles[i].y * TileSettings.TileWidth);
+                Gizmos.DrawCube(transform.position + offset, Vector3.one * TileSettings.TileWidth);
+            }
         }
     }
 }

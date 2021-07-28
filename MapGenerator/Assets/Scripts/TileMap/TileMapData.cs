@@ -4,6 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class TileMapData
 {
+    [SerializeField][HideInInspector]
     private int tileMapSize;
     public TileMapCell[] cells;
     public List<TileMapCell> availableCells = new List<TileMapCell>();
@@ -46,6 +47,11 @@ public class TileMapData
             if (tiles[i])
                 availableCells.Add(cells[i]);
         }
+    }
+
+    public int GetSize()
+    {
+        return tileMapSize;
     }
 
     public bool TryPositionToIndex(Vector2 position, out int index)
