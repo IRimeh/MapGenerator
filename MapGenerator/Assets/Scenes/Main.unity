@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17965004, g: 0.21967724, b: 0.27607733, a: 1}
+  m_IndirectSpecularColor: {r: 0.17964964, g: 0.21967849, b: 0.2760786, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,376 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &30617630
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 30617632}
+  - component: {fileID: 30617631}
+  m_Layer: 0
+  m_Name: ProceduralGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &30617631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30617630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39db53679b9e6fd4eb0db5e8fc59f07a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BackupTilePrefab: {fileID: 1410880075937172734, guid: 343a7cd2114036b40a88552f3c92f466, type: 3}
+  TilePrefabs:
+  - {fileID: 6068716209459524042, guid: 6075d9e8afb9591408441c419d678474, type: 3}
+  - {fileID: 43947033105264077, guid: c62c40a3875294c40a04a6e25d3480ad, type: 3}
+  - {fileID: 7185019474854995317, guid: bd30ece2b9ebecf448863081a816b854, type: 3}
+  - {fileID: 5327798634246452936, guid: 75b063bc0c80bde4e96eca184015c7de, type: 3}
+  - {fileID: 742967137517744022, guid: fffa5d7d2cf05f74d9996f011534a10a, type: 3}
+  - {fileID: 2781192338201439068, guid: 034d8e3f40a50ae4a914647b1fb50f21, type: 3}
+  - {fileID: 5813510633855991496, guid: 22ce4ec2f7dd9cf4ea995adf5bd22cc4, type: 3}
+  Tiles:
+  - occupiedSpaces:
+    - {x: -1, y: 1}
+    - {x: -1, y: 0}
+    - {x: 0, y: 0}
+    rotatedOccupiedSpaces:
+    - RotatedSpaces:
+      - {x: -1, y: 1}
+      - {x: -1, y: 0}
+      - {x: 0, y: 0}
+    - RotatedSpaces:
+      - {x: 1, y: 1}
+      - {x: 0, y: 1}
+      - {x: 0, y: -0}
+    - RotatedSpaces:
+      - {x: 1, y: -1}
+      - {x: 1, y: -0}
+      - {x: -0, y: -0}
+    - RotatedSpaces:
+      - {x: -1, y: -1}
+      - {x: -0, y: -1}
+      - {x: -0, y: 0}
+    correspondingTileMap:
+      tileMapSize: 0
+      cells: []
+      availableCells: []
+    correspondingTileMapCells: []
+  - occupiedSpaces:
+    - {x: -1, y: 0}
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    rotatedOccupiedSpaces:
+    - RotatedSpaces:
+      - {x: -1, y: 0}
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+    - RotatedSpaces:
+      - {x: 0, y: 1}
+      - {x: 0, y: -0}
+      - {x: 0, y: -1}
+    - RotatedSpaces:
+      - {x: 1, y: -0}
+      - {x: -0, y: -0}
+      - {x: -1, y: -0}
+    - RotatedSpaces:
+      - {x: -0, y: -1}
+      - {x: -0, y: 0}
+      - {x: -0, y: 1}
+    correspondingTileMap:
+      tileMapSize: 0
+      cells: []
+      availableCells: []
+    correspondingTileMapCells: []
+  - occupiedSpaces:
+    - {x: -1, y: 0}
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: -1, y: -1}
+    rotatedOccupiedSpaces:
+    - RotatedSpaces:
+      - {x: -1, y: 0}
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: -1, y: -1}
+    - RotatedSpaces:
+      - {x: 0, y: 1}
+      - {x: 0, y: -0}
+      - {x: 0, y: -1}
+      - {x: -1, y: 1}
+    - RotatedSpaces:
+      - {x: 1, y: -0}
+      - {x: -0, y: -0}
+      - {x: -1, y: -0}
+      - {x: 1, y: 1}
+    - RotatedSpaces:
+      - {x: -0, y: -1}
+      - {x: -0, y: 0}
+      - {x: -0, y: 1}
+      - {x: 1, y: -1}
+    correspondingTileMap:
+      tileMapSize: 0
+      cells: []
+      availableCells: []
+    correspondingTileMapCells: []
+  - occupiedSpaces:
+    - {x: -1, y: 1}
+    - {x: 0, y: 1}
+    - {x: 0, y: 0}
+    - {x: 0, y: -1}
+    - {x: 1, y: -1}
+    rotatedOccupiedSpaces:
+    - RotatedSpaces:
+      - {x: -1, y: 1}
+      - {x: 0, y: 1}
+      - {x: 0, y: 0}
+      - {x: 0, y: -1}
+      - {x: 1, y: -1}
+    - RotatedSpaces:
+      - {x: 1, y: 1}
+      - {x: 1, y: -0}
+      - {x: 0, y: -0}
+      - {x: -1, y: -0}
+      - {x: -1, y: -1}
+    - RotatedSpaces:
+      - {x: 1, y: -1}
+      - {x: -0, y: -1}
+      - {x: -0, y: -0}
+      - {x: -0, y: 1}
+      - {x: -1, y: 1}
+    - RotatedSpaces:
+      - {x: -1, y: -1}
+      - {x: -1, y: 0}
+      - {x: -0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 1, y: 1}
+    correspondingTileMap:
+      tileMapSize: 0
+      cells: []
+      availableCells: []
+    correspondingTileMapCells: []
+  - occupiedSpaces:
+    - {x: -1, y: 1}
+    - {x: 0, y: 1}
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    rotatedOccupiedSpaces:
+    - RotatedSpaces:
+      - {x: -1, y: 1}
+      - {x: 0, y: 1}
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+    - RotatedSpaces:
+      - {x: 1, y: 1}
+      - {x: 1, y: -0}
+      - {x: 0, y: -0}
+      - {x: 0, y: -1}
+    - RotatedSpaces:
+      - {x: 1, y: -1}
+      - {x: -0, y: -1}
+      - {x: -0, y: -0}
+      - {x: -1, y: -0}
+    - RotatedSpaces:
+      - {x: -1, y: -1}
+      - {x: -1, y: 0}
+      - {x: -0, y: 0}
+      - {x: -0, y: 1}
+    correspondingTileMap:
+      tileMapSize: 0
+      cells: []
+      availableCells: []
+    correspondingTileMapCells: []
+  - occupiedSpaces:
+    - {x: 0, y: 1}
+    - {x: -1, y: 0}
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    rotatedOccupiedSpaces:
+    - RotatedSpaces:
+      - {x: 0, y: 1}
+      - {x: -1, y: 0}
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+    - RotatedSpaces:
+      - {x: 1, y: -0}
+      - {x: 0, y: 1}
+      - {x: 0, y: -0}
+      - {x: 0, y: -1}
+    - RotatedSpaces:
+      - {x: -0, y: -1}
+      - {x: 1, y: -0}
+      - {x: -0, y: -0}
+      - {x: -1, y: -0}
+    - RotatedSpaces:
+      - {x: -1, y: 0}
+      - {x: -0, y: -1}
+      - {x: -0, y: 0}
+      - {x: -0, y: 1}
+    correspondingTileMap:
+      tileMapSize: 0
+      cells: []
+      availableCells: []
+    correspondingTileMapCells: []
+  - occupiedSpaces:
+    - {x: 1, y: 1}
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: -1, y: -1}
+    - {x: 0, y: -1}
+    rotatedOccupiedSpaces:
+    - RotatedSpaces:
+      - {x: 1, y: 1}
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: -1, y: -1}
+      - {x: 0, y: -1}
+    - RotatedSpaces:
+      - {x: 1, y: -1}
+      - {x: 0, y: -0}
+      - {x: 0, y: -1}
+      - {x: -1, y: 1}
+      - {x: -1, y: -0}
+    - RotatedSpaces:
+      - {x: -1, y: -1}
+      - {x: -0, y: -0}
+      - {x: -1, y: -0}
+      - {x: 1, y: 1}
+      - {x: -0, y: 1}
+    - RotatedSpaces:
+      - {x: -1, y: 1}
+      - {x: -0, y: 0}
+      - {x: -0, y: 1}
+      - {x: 1, y: -1}
+      - {x: 1, y: 0}
+    correspondingTileMap:
+      tileMapSize: 0
+      cells: []
+      availableCells: []
+    correspondingTileMapCells: []
+  TilePrefabIndices: 00000000010000000200000003000000040000000500000006000000
+  Player: {fileID: 52715840}
+  ChunkParent: {fileID: 538210799}
+  map: {fileID: 11400000, guid: c5dda06c23dd4ca4d8ef80339c587433, type: 2}
+--- !u!4 &30617632
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30617630}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &52715840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 52715844}
+  - component: {fileID: 52715843}
+  - component: {fileID: 52715842}
+  - component: {fileID: 52715841}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!136 &52715841
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52715840}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &52715842
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52715840}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &52715843
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52715840}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &52715844
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52715840}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &147322976
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,13 +579,43 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 147322976}
-  m_LocalRotation: {x: 0.27062535, y: 0.029251494, z: 0.7662472, w: 0.5820408}
+  m_LocalRotation: {x: 0.79501593, y: 0.5808793, z: -0.16829276, w: 0.04697188}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &538210798
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 538210799}
+  m_Layer: 0
+  m_Name: World
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &538210799
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538210798}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &673367495
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,7 +627,7 @@ GameObject:
   - component: {fileID: 673367497}
   - component: {fileID: 673367496}
   m_Layer: 0
-  m_Name: Generator
+  m_Name: CustomGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

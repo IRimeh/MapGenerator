@@ -29,7 +29,7 @@ public class MapGenerator : MonoBehaviour
         Debug.Log("Loaded " + Tiles.Count + " Tiles.");
     }
 
-    protected void Generate(TileMapData mapData, Vector3 middlePos, GameObject parent = null)
+    public void Generate(TileMapData mapData, Vector3 middlePos, GameObject parent = null)
     {
         TileMapData data = new TileMapData(mapData);
         GenerateInitialTiles(data, middlePos, parent);
@@ -61,13 +61,7 @@ public class MapGenerator : MonoBehaviour
             }
         }
 
-        foreach (int index in cellIndicesNowOccupied)
-        {
-            if(mapData.availableCells.Contains(mapData.cells[index]))
-            {
-                mapData.availableCells.Remove(mapData.cells[index]);
-            }
-        }
+        RemoveIndicesFromAvailableCells(mapData, cellIndicesNowOccupied);
     }
 
     private void GenerateRestOfTiles(TileMapData mapData, Vector3 middlePos, GameObject parent = null)
@@ -100,13 +94,7 @@ public class MapGenerator : MonoBehaviour
             }
         }
 
-        foreach (int index in cellIndicesNowOccupied)
-        {
-            if (mapData.availableCells.Contains(mapData.cells[index]))
-            {
-                mapData.availableCells.Remove(mapData.cells[index]);
-            }
-        }
+        RemoveIndicesFromAvailableCells(mapData, cellIndicesNowOccupied);
     }
 
     private void GetPlaceableTile(TileMapData mapData, Vector2 position, out List<int> cellIndices, out TileRotation tileRotation, out int tileIndex)
@@ -141,7 +129,7 @@ public class MapGenerator : MonoBehaviour
     private void PlaceTile(int tileIndex, TileMapData mapData, Vector3 middlePos, Vector3 position, TileRotation rotation, GameObject parent = null)
     {
         float centeringValue = mapData.GetSize() / 2.0f - 0.5f;
-        Vector3 pos = middlePos + new Vector3(position.x - centeringValue, 0, position.y - centeringValue) * TileSettings.TileWidth;
+        Vector3 pos = middlePos + new Vector3(position.x - centeringValue, 0, position.y - centeringValue) * Settings.TileWidth;
 
         if (tileIndex < 0)
         {
@@ -150,6 +138,17 @@ public class MapGenerator : MonoBehaviour
         }
 
         Instantiate(TilePrefabs[tileIndex], pos, Quaternion.Euler(0, TileRotationToDegrees(rotation), 0), parent.transform);
+    }
+
+    private void RemoveIndicesFromAvailableCells(TileMapData mapData, List<int> indicesToRemove)
+    {
+        foreach (int index in indicesToRemove)
+        {
+            if (mapData.availableCells.Contains(mapData.cells[index]))
+            {
+                mapData.availableCells.Remove(mapData.cells[index]);
+            }
+        }
     }
 
     private List<int> GetRandomIndicesFromAvailableCells(TileMapData mapData, int indicesCount)

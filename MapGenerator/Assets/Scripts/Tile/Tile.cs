@@ -84,8 +84,8 @@ public class Tile : MonoBehaviour
             Vector2[] occupiedTiles = data.GetOccupiedSpaces(TileRotation._0);
             for (int i = 0; i < occupiedTiles.Length; i++)
             {
-                Vector3 offset = new Vector3(occupiedTiles[i].x * TileSettings.TileWidth, 0, occupiedTiles[i].y * TileSettings.TileWidth);
-                Gizmos.DrawCube(transform.position + offset, Vector3.one * TileSettings.TileWidth);
+                Vector3 offset = new Vector3(occupiedTiles[i].x * Settings.TileWidth, 0, occupiedTiles[i].y * Settings.TileWidth);
+                Gizmos.DrawCube(transform.position + offset, Vector3.one * Settings.TileWidth);
             }
         }
     }

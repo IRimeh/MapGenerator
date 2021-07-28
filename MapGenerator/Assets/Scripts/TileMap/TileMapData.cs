@@ -25,8 +25,9 @@ public class TileMapData
     public TileMapData(TileMapData dataToCopy)
     {
         tileMapSize = dataToCopy.tileMapSize;
-        cells = dataToCopy.cells;
-        availableCells = dataToCopy.availableCells;
+        cells = new TileMapCell[dataToCopy.cells.Length];
+        System.Array.Copy(dataToCopy.cells, cells, dataToCopy.cells.Length);
+        availableCells = new List<TileMapCell>(dataToCopy.availableCells);
     }
 
     public void SetInitialTileMapState(bool[] tiles)
