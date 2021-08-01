@@ -383,7 +383,11 @@ MonoBehaviour:
   Player: {fileID: 52715840}
   ChunkParent: {fileID: 538210799}
   HeightVariationTexture: {fileID: 2800000, guid: a045f659cbb50bf40bcf9597d9ce178c, type: 3}
-  MaxHeight: 15
+  HeightVariationTexture2: {fileID: 2800000, guid: ba8325eb4bd206149b2ff440a4319ad5, type: 3}
+  HeightVariationTextures:
+  - {fileID: 2800000, guid: a045f659cbb50bf40bcf9597d9ce178c, type: 3}
+  - {fileID: 2800000, guid: ba8325eb4bd206149b2ff440a4319ad5, type: 3}
+  MaxHeight: 10
 --- !u!4 &30617632
 Transform:
   m_ObjectHideFlags: 0

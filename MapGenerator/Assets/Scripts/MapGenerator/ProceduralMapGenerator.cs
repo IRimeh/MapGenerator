@@ -13,7 +13,7 @@ public class ProceduralMapGenerator : MapGenerator
 
     [Header("Height Variation")]
     [SerializeField]
-    private Texture2D HeightVariationTexture;
+    private List<Texture2D> HeightVariationTextures = new List<Texture2D>();
     [SerializeField]
     private float MaxHeight = 2.0f;
 
@@ -245,11 +245,15 @@ public class ProceduralMapGenerator : MapGenerator
         float centeringValue = mapData.GetSize() / 2.0f - 0.5f;
         Vector3 pos = middlePos + new Vector3(position.x - centeringValue, 0, position.y - centeringValue);
 
-        int x = (int)(Mathf.Abs(pos.x) / Settings.TileWidth % HeightVariationTexture.width - 1);
-        int y = (int)(Mathf.Abs(pos.z) / Settings.TileWidth % HeightVariationTexture.height - 1);
-        float heightAddition = HeightVariationTexture.GetPixel(x, y).r * MaxHeight;
+        float textureValue = 1.0f;
+        for (int i = 0; i < HeightVariationTextures.Count; i++)
+        {
+            int x = (int)(Mathf.Abs(pos.x) / Settings.TileWidth % HeightVariationTextures[i].width - 1);
+            int y = (int)(Mathf.Abs(pos.z) / Settings.TileWidth % HeightVariationTextures[i].height - 1);
+            textureValue *= HeightVariationTextures[i].GetPixel(x, y).r;
+        }
 
-        return base.PlaceTile(tileIndex, mapData, middlePos + new Vector3(0, heightAddition, 0), position, rotation, parent);
+        return base.PlaceTile(tileIndex, mapData, middlePos + new Vector3(0, textureValue * MaxHeight, 0), position, rotation, parent);
     }
 }
 
