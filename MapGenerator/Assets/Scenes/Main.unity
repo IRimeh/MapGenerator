@@ -382,8 +382,6 @@ MonoBehaviour:
   TilePrefabIndices: 00000000010000000200000003000000040000000500000006000000
   Player: {fileID: 52715840}
   ChunkParent: {fileID: 538210799}
-  HeightVariationTexture: {fileID: 2800000, guid: a045f659cbb50bf40bcf9597d9ce178c, type: 3}
-  HeightVariationTexture2: {fileID: 2800000, guid: ba8325eb4bd206149b2ff440a4319ad5, type: 3}
   HeightVariationTextures:
   - {fileID: 2800000, guid: a045f659cbb50bf40bcf9597d9ce178c, type: 3}
   - {fileID: 2800000, guid: ba8325eb4bd206149b2ff440a4319ad5, type: 3}
@@ -396,7 +394,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30617630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
