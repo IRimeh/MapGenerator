@@ -112,15 +112,27 @@ public class ProceduralMapGenerator : MapGenerator
 
     private void GenerateNewlySpawnedChunks()
     {
-        newlySpawnedChunks.Sort(SortChunksByDistanceToPlayer);
+        //newlySpawnedChunks.Sort(SortChunksByDistanceToPlayer);
+        newlySpawnedChunks.Sort(delegate (Chunk a, Chunk b)
+        {
+            return Vector2.Distance(Player.transform.position, a.transform.position)
+            .CompareTo(
+              Vector2.Distance(Player.transform.position, b.transform.position));
+        });
 
-        foreach (Chunk chunk in newlySpawnedChunks)
+        StartCoroutine(GenerateChunks(new List<Chunk>(newlySpawnedChunks)));
+
+        newlySpawnedChunks.Clear();
+    }
+
+    private IEnumerator GenerateChunks(List<Chunk> chunksToGenerate)
+    {
+        foreach (Chunk chunk in chunksToGenerate)
         {
             AssignAdjecentChunks(chunk);
             chunk.Generate();
+            yield return new WaitForFixedUpdate();
         }
-
-        newlySpawnedChunks.Clear();
     }
 
     private void SpawnInitialChunks()
