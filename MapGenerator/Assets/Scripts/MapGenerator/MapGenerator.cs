@@ -13,8 +13,6 @@ public class MapGenerator : MonoBehaviour
     private List<TileData> Tiles = new List<TileData>();
     [SerializeField][HideInInspector]
     private List<int> TilePrefabIndices = new List<int>();
-    private int currentTileIndex = 0;
-    private int currentRotationIndex = 0;
 
     public void GetTiles()
     {
@@ -51,11 +49,11 @@ public class MapGenerator : MonoBehaviour
             int tileIndex = 0;
 
             GetPlaceableTile(mapData, mapData.availableCells[index].position, out cellIndices, out tileRotation, out tileIndex);
-            PlaceTile(tileIndex, mapData, middlePos, mapData.availableCells[index].position, tileRotation, parent);
+            Tile tile = PlaceTile(tileIndex, mapData, middlePos, mapData.availableCells[index].position, tileRotation, parent);
 
             foreach (int cellIndex in cellIndices)
             {
-                Debug.LogWarning("Set corresponding tile still needs to be implemented");
+                mapData.cells[cellIndex].SetCorrespondingTile(tile);
                 mapData.cells[cellIndex].state = CellState.Occupied;
                 cellIndicesNowOccupied.Add(cellIndex);
             }
@@ -84,11 +82,11 @@ public class MapGenerator : MonoBehaviour
             int tileIndex = 0;
 
             GetPlaceableTile(mapData, mapData.availableCells[randomIndexOrder[i]].position, out cellIndices, out tileRotation, out tileIndex);
-            PlaceTile(tileIndex, mapData, middlePos, mapData.availableCells[randomIndexOrder[i]].position, tileRotation, parent);
+            Tile tile = PlaceTile(tileIndex, mapData, middlePos, mapData.availableCells[randomIndexOrder[i]].position, tileRotation, parent);
 
             foreach (int cellIndex in cellIndices)
             {
-                Debug.LogWarning("Set corresponding tile still needs to be implemented");
+                mapData.cells[cellIndex].SetCorrespondingTile(tile);
                 mapData.cells[cellIndex].state = CellState.Occupied;
                 cellIndicesNowOccupied.Add(cellIndex);
             }
@@ -126,18 +124,20 @@ public class MapGenerator : MonoBehaviour
         tileRotation = (TileRotation)((int)Random.Range(0, 3));
     }
 
-    private void PlaceTile(int tileIndex, TileMapData mapData, Vector3 middlePos, Vector3 position, TileRotation rotation, GameObject parent = null)
+    protected virtual Tile PlaceTile(int tileIndex, TileMapData mapData, Vector3 middlePos, Vector3 position, TileRotation rotation, GameObject parent = null)
     {
         float centeringValue = mapData.GetSize() / 2.0f - 0.5f;
         Vector3 pos = middlePos + new Vector3(position.x - centeringValue, 0, position.y - centeringValue) * Settings.TileWidth;
+        Tile tile;
 
         if (tileIndex < 0)
         {
-            Instantiate(BackupTilePrefab, pos, Quaternion.Euler(0, TileRotationToDegrees(rotation), 0), parent.transform);
-            return;
+            tile = Instantiate(BackupTilePrefab, pos, Quaternion.Euler(0, TileRotationToDegrees(rotation), 0), parent.transform);
+            return tile;
         }
 
-        Instantiate(TilePrefabs[tileIndex], pos, Quaternion.Euler(0, TileRotationToDegrees(rotation), 0), parent.transform);
+        tile = Instantiate(TilePrefabs[tileIndex], pos, Quaternion.Euler(0, TileRotationToDegrees(rotation), 0), parent.transform);
+        return tile;
     }
 
     private void RemoveIndicesFromAvailableCells(TileMapData mapData, List<int> indicesToRemove)

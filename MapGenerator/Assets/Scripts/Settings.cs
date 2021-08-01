@@ -3,8 +3,10 @@ using UnityEngine;
 public static class Settings
 {
     public static float TileWidth = 1.0f;
-    public static int ChunkSize = 12;
+    public static int ChunkSize = 32;
     public static int ViewDistance = 7;
+    public static int MinimumStartingPositionsInChunk = 2;
+    public static int PathWidth = 4;
 
     public static int HalfViewDistanceCeil
     {

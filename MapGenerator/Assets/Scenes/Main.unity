@@ -382,7 +382,8 @@ MonoBehaviour:
   TilePrefabIndices: 00000000010000000200000003000000040000000500000006000000
   Player: {fileID: 52715840}
   ChunkParent: {fileID: 538210799}
-  map: {fileID: 11400000, guid: c5dda06c23dd4ca4d8ef80339c587433, type: 2}
+  HeightVariationTexture: {fileID: 2800000, guid: a045f659cbb50bf40bcf9597d9ce178c, type: 3}
+  MaxHeight: 15
 --- !u!4 &30617632
 Transform:
   m_ObjectHideFlags: 0

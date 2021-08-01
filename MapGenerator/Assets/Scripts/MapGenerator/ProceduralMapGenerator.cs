@@ -5,20 +5,27 @@ using UnityEngine;
 
 public class ProceduralMapGenerator : MapGenerator
 {
+    static GameObject StaticPlayer;
     [SerializeField]
     private GameObject Player;
     [SerializeField]
     private Transform ChunkParent;
+
+    [Header("Height Variation")]
     [SerializeField]
-    TileMap map;
+    private Texture2D HeightVariationTexture;
+    [SerializeField]
+    private float MaxHeight = 2.0f;
 
     private Vector2Int chunkSpawnPlayerPos = new Vector2Int(0, 0);
     private Vector2Int chunkDisablePlayerPos = new Vector2Int(0, 0);
     private Dictionary<Vector2Int, Chunk> chunks = new Dictionary<Vector2Int, Chunk>();
+    private List<Chunk> newlySpawnedChunks = new List<Chunk>();
 
     // Start is called before the first frame update
     void Start()
     {
+        StaticPlayer = Player;
         SpawnInitialChunks();
     }
 
@@ -27,12 +34,13 @@ public class ProceduralMapGenerator : MapGenerator
     {
         SpawnNewChunks();
         DisableOldChunks();
+        GenerateNewlySpawnedChunks();
     }
 
     private void SpawnNewChunks()
     {
-        int xPlayerChunkPos = Mathf.RoundToInt(Player.transform.position.x / 12);
-        int yPlayerChunkPos = Mathf.RoundToInt(Player.transform.position.z / 12);
+        int xPlayerChunkPos = Mathf.RoundToInt(Player.transform.position.x / Settings.ChunkSize);
+        int yPlayerChunkPos = Mathf.RoundToInt(Player.transform.position.z / Settings.ChunkSize);
 
         Vector2Int diff = new Vector2Int(Mathf.Abs(xPlayerChunkPos - chunkSpawnPlayerPos.x), Mathf.Abs(yPlayerChunkPos - chunkSpawnPlayerPos.y));
 
@@ -61,8 +69,8 @@ public class ProceduralMapGenerator : MapGenerator
 
     private void DisableOldChunks()
     {
-        int xPlayerChunkPos = Mathf.RoundToInt(Player.transform.position.x / 12);
-        int yPlayerChunkPos = Mathf.RoundToInt(Player.transform.position.z / 12);
+        int xPlayerChunkPos = Mathf.RoundToInt(Player.transform.position.x / Settings.ChunkSize);
+        int yPlayerChunkPos = Mathf.RoundToInt(Player.transform.position.z / Settings.ChunkSize);
 
         Vector2Int diff = new Vector2Int(Mathf.Abs(xPlayerChunkPos - chunkDisablePlayerPos.x), Mathf.Abs(yPlayerChunkPos - chunkDisablePlayerPos.y));
 
@@ -100,6 +108,19 @@ public class ProceduralMapGenerator : MapGenerator
             }
             chunkDisablePlayerPos.y = yPlayerChunkPos;
         }
+    }
+
+    private void GenerateNewlySpawnedChunks()
+    {
+        newlySpawnedChunks.Sort(SortChunksByDistanceToPlayer);
+
+        foreach (Chunk chunk in newlySpawnedChunks)
+        {
+            AssignAdjecentChunks(chunk);
+            chunk.Generate();
+        }
+
+        newlySpawnedChunks.Clear();
     }
 
     private void SpawnInitialChunks()
@@ -193,9 +214,42 @@ public class ProceduralMapGenerator : MapGenerator
         chunkObj.transform.SetParent(ChunkParent);
         chunkObj.transform.position = new Vector3(position.x * Settings.ChunkSize, 0, position.y * Settings.ChunkSize);
         Chunk chunk = chunkObj.AddComponent<Chunk>();
+        chunk.position = position;
         chunk.SetMapGenerator(this);
-        chunk.Generate();
+        newlySpawnedChunks.Add(chunk);
         return chunk;
+    }
+
+    private void AssignAdjecentChunks(Chunk chunk)
+    {
+        if (chunks.TryGetValue(chunk.position + new Vector2Int(0, 1), out Chunk chunkUp))
+            chunk.AssignChunk(Chunk.Direction.Up, chunkUp);
+        if (chunks.TryGetValue(chunk.position + new Vector2Int(0, -1), out Chunk chunkDown))
+            chunk.AssignChunk(Chunk.Direction.Down, chunkDown);
+        if (chunks.TryGetValue(chunk.position + new Vector2Int(-1, 0), out Chunk chunkLeft))
+            chunk.AssignChunk(Chunk.Direction.Left, chunkLeft);
+        if (chunks.TryGetValue(chunk.position + new Vector2Int(1, 0), out Chunk chunkRight))
+            chunk.AssignChunk(Chunk.Direction.Right, chunkRight);
+    }
+
+    static int SortChunksByDistanceToPlayer(Chunk chunk1, Chunk chunk2)
+    {
+        float chunk1Dist = Vector3.Distance(chunk1.transform.position, StaticPlayer.transform.position);
+        float chunk2Dist = Vector3.Distance(chunk2.transform.position, StaticPlayer.transform.position);
+
+        return chunk1Dist < chunk2Dist ? 0 : 1;
+    }
+
+    protected override Tile PlaceTile(int tileIndex, TileMapData mapData, Vector3 middlePos, Vector3 position, TileRotation rotation, GameObject parent = null)
+    {
+        float centeringValue = mapData.GetSize() / 2.0f - 0.5f;
+        Vector3 pos = middlePos + new Vector3(position.x - centeringValue, 0, position.y - centeringValue);
+
+        int x = (int)(Mathf.Abs(pos.x) / Settings.TileWidth % HeightVariationTexture.width - 1);
+        int y = (int)(Mathf.Abs(pos.z) / Settings.TileWidth % HeightVariationTexture.height - 1);
+        float heightAddition = HeightVariationTexture.GetPixel(x, y).r * MaxHeight;
+
+        return base.PlaceTile(tileIndex, mapData, middlePos + new Vector3(0, heightAddition, 0), position, rotation, parent);
     }
 }
 
