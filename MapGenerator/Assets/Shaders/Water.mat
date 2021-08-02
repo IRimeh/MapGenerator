@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _EnvTex:
-        m_Texture: {fileID: 8900000, guid: 95311f3a82beca143897c9ca5d4df100, type: 3}
+        m_Texture: {fileID: 8900000, guid: 216059cb49097b24b8c5879caf394cb0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -32,16 +32,20 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AdditionalSpecs: -0.0025
     - _AlphaDepth: 0.046
     - _DetailWaveSize: 2
-    - _Gloss: 0.65
+    - _EnvStrength: 1
+    - _Gloss: 0.753
     - _MaxDepth: 0.191
-    - _NormalStrength: 1
+    - _NormalStrength: 1.08
+    - _ShadowStrength: 0.5
     - _WaveScrollSpeed: 1
     - _WaveSize: 1
     m_Colors:
     - _DeepColor: {r: 0.10969206, g: 0.13141282, b: 0.2735849, a: 1}
     - _ShallowColor: {r: 0.11120502, g: 0.2348929, b: 0.46226412, a: 0}
-    - _SpecularColor: {r: 2, g: 2, b: 2, a: 1}
+    - _ShorelineColor: {r: 0.8066038, g: 0.941021, b: 1, a: 1}
+    - _SpecularColor: {r: 3.5648696, g: 1.7469537, b: 0, a: 1}
     - _WaveScrollDir: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

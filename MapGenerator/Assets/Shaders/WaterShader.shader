@@ -3,15 +3,23 @@ Shader "Unlit/WaterShader"
     Properties
     {
         [Header(Base Colors)]
-        [NoScaleOffset]_EnvTex("Environnement Tex", Cube) = "" {}
         _DeepColor("Deep Color", Color) = (1,1,1,1)
         _ShallowColor("Shallow Color", Color) = (1,1,1,1)
         _MaxDepth("Max Depth", Range(0, 1)) = 0.5
         _AlphaDepth("Alpha Depth", Range(0, 1)) = 0.25
 
+        [Header(Additional Colors)]
+        _ShorelineColor("Shoreline Color", Color) = (1,1,1,1)
+        _AdditionalSpecs("Additional Specs", float) = -0.0025
+
+        [Header(Environment)]
+        _ShadowStrength("Shadow Strenght", Range(0, 1)) = 0.5
+        _EnvStrength("Environment Strength", Range(0, 1)) = 0.75
+        [NoScaleOffset]_EnvTex("Environnement Tex", Cube) = "" {}
+
         [Header(Normals)]
-        [NoScaleOffset]_NormalTex("Normal", 2D) = "bump" {}
         _NormalStrength("Normal Strength", Range(0, 2)) = 1
+        [NoScaleOffset]_NormalTex("Normal", 2D) = "bump" {}
 
         [Header(Specular)]
         [HDR]_SpecularColor("Specular Color", Color) = (1,1,1,1)
@@ -68,6 +76,7 @@ Shader "Unlit/WaterShader"
             float4 _NormalTex_ST;
             float _NormalStrength;
             samplerCUBE _EnvTex;
+            float _EnvStrength;
 
             float4 _SpecularColor;
             float _Gloss;
@@ -83,6 +92,10 @@ Shader "Unlit/WaterShader"
             float _AlphaDepth;
 
             float3 _PlayerPosition;
+            float _ShadowStrength;
+
+            float4 _ShorelineColor;
+            float _AdditionalSpecs;
 
             v2f vert(appdata v)
             {
@@ -144,8 +157,9 @@ Shader "Unlit/WaterShader"
                 float3 lightReflectDir = reflect(-lightDir, normal);
                 float3 viewDir = normalize(_WorldSpaceCameraPos - wPos);
                 float NDotL = dot(i.normal.xyz, lightDir);
+                float NDotLNorm = dot(normal, lightDir);
                 float fresnel = dot(viewDir, i.normal.xyz);
-                float shadow = lerp(light.shadowAttenuation * light.distanceAttenuation, 1, 0.1f);
+                float shadow = lerp(light.shadowAttenuation * light.distanceAttenuation, 1, 1.0f - _ShadowStrength);
 
                 //Specular calculation
                 float specular = saturate(dot(lightReflectDir, viewDir));
@@ -160,11 +174,15 @@ Shader "Unlit/WaterShader"
                 float distToPlane = i.uv.z;
                 float depth = (linearDepth - distToPlane) * 0.01f;
 
+                //Line around geometry
+                float shoreLine = step(depth - NDotLNorm * 0.015f, 0.001f);
+                float additionalSpecs = saturate(step(NDotLNorm, 0.1f) - shoreLine) * _AdditionalSpecs;
+
                 //Composition
                 float alpha = lerp(_ShallowColor.a, _DeepColor.a, saturate(depth / _AlphaDepth));
                 float3 baseTex = lerp(_ShallowColor, _DeepColor, saturate(depth / _MaxDepth));
 
-                float4 output = float4(baseTex * NDotL * shadow + specular + env, saturate(alpha + specular));
+                float4 output = float4((baseTex * NDotL + specular + env * _EnvStrength + (shoreLine * _ShorelineColor) + additionalSpecs) * shadow, saturate(alpha + specular + shoreLine));
                 return output;
             }
         ENDHLSL
