@@ -163,7 +163,7 @@ Shader "Unlit/WaterShader"
 
                 //Specular calculation
                 float specular = saturate(dot(lightReflectDir, viewDir));
-                specular = pow(specular, exp2(_Gloss * 12.0f)) * _SpecularColor;
+                specular = pow(specular, exp2(_Gloss * 12.0f)) * _SpecularColor * step(0.5f, light.shadowAttenuation);
 
                 //Env
                 float3 env = texCUBE(_EnvTex, reflect(-viewDir, i.normal.xyz));
