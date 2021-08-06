@@ -4,7 +4,7 @@ public static class Settings
 {
     public static float TileWidth = 1.0f;
     public static int ChunkSize = 32;
-    public static int ViewDistance = 11;
+    public static int ViewDistance = 9;
     public static int MinimumStartingPositionsInChunk = 2;
     public static int PathWidth = 3;
 

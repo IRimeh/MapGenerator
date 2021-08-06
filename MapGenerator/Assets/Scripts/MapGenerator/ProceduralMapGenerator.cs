@@ -112,12 +112,12 @@ public class ProceduralMapGenerator : MapGenerator
 
     private void GenerateNewlySpawnedChunks()
     {
-        //newlySpawnedChunks.Sort(SortChunksByDistanceToPlayer);
+        //Sort the newly spawned chunks on the distance to the player, allowing the closer ones to be generated first
         newlySpawnedChunks.Sort(delegate (Chunk a, Chunk b)
         {
             return Vector2.Distance(Player.transform.position, a.transform.position)
-            .CompareTo(
-              Vector2.Distance(Player.transform.position, b.transform.position));
+                    .CompareTo(
+                    Vector2.Distance(Player.transform.position, b.transform.position));
         });
 
         StartCoroutine(GenerateChunks(new List<Chunk>(newlySpawnedChunks)));

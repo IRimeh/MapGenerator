@@ -8,6 +8,9 @@ public class Chunk : MonoBehaviour
     public Vector2Int position;
     private MapGenerator mapGenerator;
     private TileMapData mapData;
+    private MeshFilter meshFilter;
+    private MeshRenderer meshRenderer;
+    private Mesh mesh;
 
     [SerializeField] private Chunk chunkUp;
     [SerializeField] private Chunk chunkDown;
@@ -45,6 +48,34 @@ public class Chunk : MonoBehaviour
 
         mapData.SetInitialTileMapState(tileStates);
         mapGenerator.Generate(mapData, transform.position, gameObject);
+        CombineTilesIntoOneMesh();
+    }
+
+
+    private void CombineTilesIntoOneMesh()
+    {
+        MeshFilter[] meshFilters = GetComponentsInChildren<MeshFilter>();
+        CombineInstance[] combine = new CombineInstance[meshFilters.Length];
+
+        int i = 0;
+        while (i < meshFilters.Length)
+        {
+            combine[i].mesh = meshFilters[i].sharedMesh;
+            Matrix4x4 matrix = meshFilters[i].transform.localToWorldMatrix;
+            matrix.SetColumn(3, new Vector4(matrix[0,3] - transform.position.x, matrix[1,3], matrix[2,3] - transform.position.z));
+            combine[i].transform = matrix;
+            meshFilters[i].gameObject.SetActive(false);
+
+            i++;
+        }
+
+        Mesh mesh = new Mesh();
+        meshFilter = gameObject.AddComponent<MeshFilter>();
+        meshFilter.mesh = mesh;
+        meshRenderer = gameObject.AddComponent<MeshRenderer>();
+        meshRenderer.sharedMaterial = meshFilters[0].GetComponent<MeshRenderer>().sharedMaterial;
+
+        mesh.CombineMeshes(combine, true);
     }
 
     private void ShuffleDirectionList()

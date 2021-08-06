@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4644086694172230502}
   - component: {fileID: 4131960898791467454}
   - component: {fileID: 5327798634246452936}
+  - component: {fileID: -1328228988984160347}
   m_Layer: 0
   m_Name: N-Block
   m_TagString: Untagged
@@ -133,3 +134,16 @@ MonoBehaviour:
       cells: []
       availableCells: []
     correspondingTileMapCells: []
+--- !u!65 &-1328228988984160347
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827123707744449560}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.9129043, y: 59.4, z: 2.9094148}
+  m_Center: {x: 0.0076449513, y: -29.7, z: 0.0029928088}

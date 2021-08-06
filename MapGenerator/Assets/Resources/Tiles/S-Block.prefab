@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9142130185229243795}
   - component: {fileID: 6467840585838773967}
   - component: {fileID: 742967137517744022}
+  - component: {fileID: 1137444856133498014}
   m_Layer: 0
   m_Name: S-Block
   m_TagString: Untagged
@@ -128,3 +129,16 @@ MonoBehaviour:
       cells: []
       availableCells: []
     correspondingTileMapCells: []
+--- !u!65 &1137444856133498014
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5310885296780302507}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.9189184, y: 59.4, z: 1.9424073}
+  m_Center: {x: -0.002068162, y: -29.7, z: 0.5066436}

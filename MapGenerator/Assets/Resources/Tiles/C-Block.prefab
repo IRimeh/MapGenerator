@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7922980399993624613}
   - component: {fileID: 5874782773404621368}
   - component: {fileID: 6068716209459524042}
+  - component: {fileID: 144848380130098122}
   m_Layer: 0
   m_Name: C-Block
   m_TagString: Untagged
@@ -123,3 +124,16 @@ MonoBehaviour:
       cells: []
       availableCells: []
     correspondingTileMapCells: []
+--- !u!65 &144848380130098122
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5207369301850421893}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9203057, y: 59.445663, z: 1.951581}
+  m_Center: {x: -0.48751068, y: -29.67717, z: 0.5092095}

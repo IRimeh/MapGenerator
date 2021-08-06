@@ -385,7 +385,7 @@ MonoBehaviour:
   HeightVariationTextures:
   - {fileID: 2800000, guid: a045f659cbb50bf40bcf9597d9ce178c, type: 3}
   - {fileID: 2800000, guid: ba8325eb4bd206149b2ff440a4319ad5, type: 3}
-  MaxHeight: 5
+  MaxHeight: 7.5
 --- !u!4 &30617632
 Transform:
   m_ObjectHideFlags: 0

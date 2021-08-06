@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 574738183953023969}
   - component: {fileID: 6618290711521444181}
   - component: {fileID: 5813510633855991496}
+  - component: {fileID: 2372260277268363106}
   m_Layer: 0
   m_Name: W-Block
   m_TagString: Untagged
@@ -133,3 +134,16 @@ MonoBehaviour:
       cells: []
       availableCells: []
     correspondingTileMapCells: []
+--- !u!65 &2372260277268363106
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722579425032085972}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.97, y: 59.453545, z: 2.97}
+  m_Center: {x: 0, y: -29.67323, z: 0}
