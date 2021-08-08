@@ -90,11 +90,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_4e5766fc80784304a9bdb05a9b5da2b8: 0.413
-    - Vector1_835dd5e0fa76434587a65f0b72fc81f1: 105
-    - Vector1_adbb020709404b4abffa44a130509427: 109
+    - Vector1_835dd5e0fa76434587a65f0b72fc81f1: 111.9
+    - Vector1_adbb020709404b4abffa44a130509427: 10
     - Vector1_baed8673a8cf4f20b93875b5d2335a95: 155
-    - Vector1_de2210ed457a46ee8919bf76b48a49bf: 10
-    - Vector1_ec52836e33df4ba58f097effed1d1991: 1.5
+    - Vector1_de2210ed457a46ee8919bf76b48a49bf: 5
+    - Vector1_ec52836e33df4ba58f097effed1d1991: 0.5
     - Vector1_ff34eb0e17c041dbb2d45ee87defd52c: 0.111
     - _AlphaClip: 0
     - _Blend: 0
@@ -107,6 +107,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
+    - _FadeEndDistance: 150
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0

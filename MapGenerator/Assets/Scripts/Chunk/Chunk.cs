@@ -56,10 +56,12 @@ public class Chunk : MonoBehaviour
     {
         MeshFilter[] meshFilters = GetComponentsInChildren<MeshFilter>();
         CombineInstance[] combine = new CombineInstance[meshFilters.Length];
+        GameObject[] objectsToDestroy = new GameObject[meshFilters.Length]; 
 
         int i = 0;
         while (i < meshFilters.Length)
         {
+            objectsToDestroy[i] = meshFilters[i].gameObject;
             combine[i].mesh = meshFilters[i].sharedMesh;
             Matrix4x4 matrix = meshFilters[i].transform.localToWorldMatrix;
             matrix.SetColumn(3, new Vector4(matrix[0,3] - transform.position.x, matrix[1,3], matrix[2,3] - transform.position.z));
@@ -76,6 +78,11 @@ public class Chunk : MonoBehaviour
         meshRenderer.sharedMaterial = meshFilters[0].GetComponent<MeshRenderer>().sharedMaterial;
 
         mesh.CombineMeshes(combine, true);
+
+        for (int j = 0; j < objectsToDestroy.Length; j++)
+        {
+            Destroy(objectsToDestroy[j]);
+        }
     }
 
     private void ShuffleDirectionList()
@@ -328,12 +335,14 @@ public class Chunk : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Vector3 diff = (Camera.current.transform.position - transform.position);
-        if (Vector2.SqrMagnitude(new Vector2(diff.x, diff.z)) < 1000.0f)
-        {
-            Gizmos.color = new Color(0.7f, 0.7f, 1.0f);
-            Gizmos.DrawWireCube(transform.position, new Vector3(Settings.ChunkSize * Settings.TileWidth, 0.0f, Settings.ChunkSize * Settings.TileWidth));
-        }
+        Gizmos.color = new Color(0.7f, 0.7f, 1.0f);
+        Gizmos.DrawWireCube(transform.position, new Vector3(Settings.ChunkSize * Settings.TileWidth, 0.0f, Settings.ChunkSize * Settings.TileWidth));
+    }
+    
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = new Color(0.0f, 0.8f, 0.0f);
+        Gizmos.DrawWireCube(transform.position, new Vector3(Settings.ChunkSize * Settings.TileWidth, 0.1f, Settings.ChunkSize * Settings.TileWidth));
     }
 }
 
